@@ -1,6 +1,8 @@
 $tmpPath = "c:\temp"
-if(!(Test-Path -path $tmpPath)) 
+if(!(Test-Path -path $tmpPath))
+{
   mkdir $tmpPath
+}
 cd $tmpPath
 $url = "https://go.microsoft.com/fwlink/?LinkId=287166"
 $output = "$PSScriptRoot\WebPlatformInstaller_amd64_en-US.msi"
