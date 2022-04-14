@@ -1,3 +1,4 @@
+$ignore = mkdir c:\temp
 cd c:\temp
 $url = "https://go.microsoft.com/fwlink/?LinkId=287166"
 $output = "$PSScriptRoot\WebPlatformInstaller_amd64_en-US.msi"
