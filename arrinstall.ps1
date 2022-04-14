@@ -1,5 +1,7 @@
-$ignore = mkdir c:\temp
-cd c:\temp
+$tmpPath = "c:\temp"
+if(!(Test-Path -path $directoyPath)) 
+  mkdir $tmpPath
+cd $tmpPath
 $url = "https://go.microsoft.com/fwlink/?LinkId=287166"
 $output = "$PSScriptRoot\WebPlatformInstaller_amd64_en-US.msi"
 Invoke-WebRequest -Uri $url -OutFile $output
