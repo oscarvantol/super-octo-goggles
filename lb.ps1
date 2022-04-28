@@ -16,4 +16,4 @@ Invoke-WebRequest -Uri $dnframworkdownload -OutFile $dnframworkfile
 $arrUrl = "https://download.microsoft.com/download/E/9/8/E9849D6A-020E-47E4-9FD0-A023E99B54EB/requestRouter_amd64.msi"
 $arrFile = "$PSScriptRoot\requestRouter_amd64.msi" 
 Invoke-WebRequest -Uri $arrUrl -OutFile $arrFile
-& $arrFile /qn -Out-Host
+& $arrFile /qn | Out-Host
