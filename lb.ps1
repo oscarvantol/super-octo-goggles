@@ -18,3 +18,34 @@ Start-Process msiexec.exe -Wait -ArgumentList "/I $arrUrl /quiet"
 
 $rwUrl = 'https://download.microsoft.com/download/1/2/8/128E2E22-C1B9-44A4-BE2A-5859ED1D4592/rewrite_amd64_en-US.msi'
 Start-Process msiexec.exe -Wait -ArgumentList "/I $rwUrl /quiet"
+
+
+
+
+param($BlueFarm, $GreenFarm, [String[]] $BlueHosts, [String[]] $GreenHosts)
+
+$rwUrl = 'https://download.microsoft.com/download/1/2/8/128E2E22-C1B9-44A4-BE2A-5859ED1D4592/rewrite_amd64_en-US.msi'
+Start-Process msiexec.exe -Wait -ArgumentList "/I $rwUrl /quiet"
+
+$arrUrl = "https://download.microsoft.com/download/E/9/8/E9849D6A-020E-47E4-9FD0-A023E99B54EB/requestRouter_amd64.msi"
+Start-Process msiexec.exe -Wait -ArgumentList "/I $arrUrl /quiet"
+
+
+cd $Env:windir'\system32\inetsrv'
+.\appcmd.exe set config  -section:webFarms /+"[name='$BlueFarm']" /commit:apphost
+
+foreach ($hostName in $BlueHosts) {
+    .\appcmd.exe set config  -section:webFarms /+"[name='$BlueFarm'].[address='$hostName']" /commit:apphost
+}
+
+
+.\appcmd.exe set config  -section:webFarms /+"[name='$GreenFarm']" /commit:apphost
+
+foreach ($hostName in $GreenHosts) {
+.\appcmd.exe set config  -section:webFarms /+"[name='$GreenFarm'].[address='$hostName']" /commit:apphost
+}
+
+
+.\appcmd.exe set config  -section:system.webServer/rewrite/globalRules /+"[name='LiveSSL', patternSyntax='Wildcard',stopProcessing='True']" /commit:apphost
+#.\appcmd.exe set config  -section:system.webServer/rewrite/globalRules /"[name='LiveSSL',patternSyntax='Wildcard',stopProcessing='True'].match.url:*"  /commit:apphost
+#.\appcmd.exe set config  -section:system.webServer/rewrite/globalRules /[name='LiveSSL',patternSyntax='Wildcard',stopProcessing='True'].action.type:"Rewrite" /[name='LiveSSL',patternSyntax='Wildcard',stopProcessing='True'].action.url:"http://myServerFarm/{R:0}"  /commit:apphost
