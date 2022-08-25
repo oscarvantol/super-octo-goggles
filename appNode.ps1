@@ -1,6 +1,5 @@
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45 -All
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic -All
