@@ -4,10 +4,10 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic -All
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
-Enable-WindowsOptionalFeature -Online -FeatureName WCF-Services45
-Enable-WindowsOptionalFeature -Online -FeatureName WCF-HTTP-Activation45
-Enable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-Activation45
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures -All
+Enable-WindowsOptionalFeature -Online -FeatureName WCF-Services45 -All
+Enable-WindowsOptionalFeature -Online -FeatureName WCF-HTTP-Activation45 -All
+Enable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-Activation45 -All
 Enable-WindowsOptionalFeature -Online -FeatureName WCF-HTTP-Activation -All
 Enable-WindowsOptionalFeature -Online -FeatureName WCF-NonHTTP-Activation -All
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication -All
