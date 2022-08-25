@@ -1,12 +1,12 @@
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
-Enable-WindowsOptionalFeature -Online -FeatureName WCF-HTTP-Activation
-Enable-WindowsOptionalFeature -Online -FeatureName WCF-NonHTTP-Activation
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45 -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic -All
+Enable-WindowsOptionalFeature -Online -FeatureName WCF-HTTP-Activation -All
+Enable-WindowsOptionalFeature -Online -FeatureName WCF-NonHTTP-Activation -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication -All
 
  
 #$dotnet6download = "https://download.visualstudio.microsoft.com/download/pr/0c2039d2-0072-43a8-bb20-766b9a91d001/0e2288a2f07743e63778416b2367bb88/dotnet-hosting-6.0.4-win.exe"
